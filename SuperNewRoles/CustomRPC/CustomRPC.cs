@@ -831,6 +831,12 @@ namespace SuperNewRoles.CustomRPC
                             CustomEndGame((GameOverReason)reader.ReadByte(), reader.ReadBoolean());
                         }
                         break;
+                    case (byte)CustomRPC.TraitorPromotes:
+                        RPCProcedure.TraitorPromotes();
+                        break;
+                    case (byte)CustomRPC.CreateTraitor:
+                        RPCProcedure.CreateTraitor(reader.ReadByte(), reader.ReadBoolean());
+                        break;
                 }
             }
         }
