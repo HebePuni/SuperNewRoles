@@ -805,8 +805,8 @@ namespace SuperNewRoles.Buttons
                 49
             );
 
-            JackalSidekickButton.buttonText = ModTranslation.getString("JackalCreateSidekickButtonName");
-            JackalSidekickButton.showButtonText = true;
+            FoxTraitorButton.buttonText = ModTranslation.getString("JackalCreateSidekickButtonName");
+            FoxTraitorButton.showButtonText = true;
 
             RoleClass.SerialKiller.SuicideKillText = GameObject.Instantiate(HudManager.Instance.KillButton.cooldownTimerText, HudManager.Instance.KillButton.cooldownTimerText.transform.parent);
             RoleClass.SerialKiller.SuicideKillText.text = "";

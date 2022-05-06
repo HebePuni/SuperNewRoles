@@ -846,7 +846,7 @@ namespace SuperNewRoles.CustomOption
             FoxOption = new CustomRoleOption(354, true, CustomOptionType.Neutral, "FoxName", RoleClass.Fox.color, 1);
             FoxPlayerCount = CustomOption.Create(355, true, CustomOptionType.Neutral, "SettingPlayerCountName", CrewPlayers[0], CrewPlayers[1], CrewPlayers[2], CrewPlayers[3], FoxOption);
             FoxCreateTraitor = CustomOption.Create(356, false, CustomOptionType.Neutral, "FoxCreateTraitorSetting", false, FoxOption);
-            FoxNewFoxCreateTraitor = CustomOption.Create(357, false, CustomOptionType.Neutral, "JackalNewJackalCreateSidekickSetting", false, FoxOption);
+            FoxNewFoxCreateTraitor = CustomOption.Create(357, false, CustomOptionType.Neutral, "FoxNewFoxCreateTraitorSetting", false, FoxOption);
 
             QuarreledOption = CustomOption.Create(122, false, CustomOptionType.Neutral, cs(RoleClass.Quarreled.color, "QuarreledName"), false, null, isHeader: true);
             QuarreledTeamCount = CustomOption.Create(124, false, CustomOptionType.Neutral, "QuarreledTeamCountSetting", QuarreledPlayers[0], QuarreledPlayers[1], QuarreledPlayers[2], QuarreledPlayers[3], QuarreledOption);
