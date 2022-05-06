@@ -16,7 +16,8 @@ namespace SuperNewRoles.Roles
             BaitReport,
             RedRidingHoodRevive,
             JackalSidekick,
-            NekomataExiled
+            NekomataExiled,
+            FoxTraitor
         }
         public static bool IsBlock(BlockTypes blocktype,PlayerControl player = null)
         {
@@ -39,6 +40,8 @@ namespace SuperNewRoles.Roles
                 case (BlockTypes.JackalSidekick):
                     return true;
                 case (BlockTypes.NekomataExiled):
+                    return true;
+                case (BlockTypes.FoxTraitor):
                     return true;
             }
             return false;

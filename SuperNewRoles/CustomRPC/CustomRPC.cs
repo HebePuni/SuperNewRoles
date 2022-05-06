@@ -144,7 +144,9 @@ namespace SuperNewRoles.CustomRPC
         SetCustomSabotage,
         UseStuntmanCount,
         UseMadStuntmanCount,
-        CustomEndGame
+        CustomEndGame,
+        TraitorPromotes,
+        CreateTraitor,
     }
     public static class RPCProcedure
     {
@@ -626,6 +628,33 @@ namespace SuperNewRoles.CustomRPC
         public static void SetWinCond(byte Cond)
         {
             OnGameEndPatch.EndData = (CustomGameOverReason)Cond;
+        }
+        public static void TraitorPromotes()
+        {
+            for (int i = 0; i < RoleClass.Fox.TraitorPlayer.Count; i++)
+            {
+                RoleClass.Fox.FoxPlayer.Add(RoleClass.Fox.TraitorPlayer[i]);
+                RoleClass.Fox.TraitorPlayer.RemoveAt(i);
+            }
+            PlayerControlHepler.refreshRoleDescription(PlayerControl.LocalPlayer);
+            ChacheManager.ResetMyRoleChache();
+        }
+        public static void CreateTraitor(byte playerid, bool IsFake)
+        {
+            var player = ModHelpers.playerById(playerid);
+            if (player == null) return;
+            if (IsFake)
+            {
+                RoleClass.Fox.FakeTraitorPlayer.Add(player);
+            }
+            else
+            {
+                DestroyableSingleton<RoleManager>.Instance.SetRole(player, RoleTypes.Crewmate);
+                player.ClearRole();
+                RoleClass.Fox.TraitorPlayer.Add(player);
+                PlayerControlHepler.refreshRoleDescription(PlayerControl.LocalPlayer);
+                ChacheManager.ResetMyRoleChache();
+            }
         }
         [HarmonyPatch(typeof(InnerNetClient), nameof(InnerNetClient.StartEndGame))]
         class STARTENDGAME

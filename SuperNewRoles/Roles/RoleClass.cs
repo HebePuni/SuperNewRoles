@@ -1530,7 +1530,7 @@ namespace SuperNewRoles.Roles
             public static List<PlayerControl> FoxPlayer;
             public static List<PlayerControl> TraitorPlayer;
             public static List<PlayerControl> FakeTraitorPlayer;
-            public static Color32 color = new Color32(0, 255, 255, byte.MaxValue);
+            public static Color32 color = new Color32(127, 0, 255, byte.MaxValue);
             public static bool CreateTraitor;
             public static bool NewFoxCreateSidekick;
             public static bool IsCreateTraitor;
