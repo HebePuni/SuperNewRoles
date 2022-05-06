@@ -33,6 +33,7 @@ namespace SuperNewRoles.EndGame
         LoversWin,
         MadJesterWin,
         FalseChargesWin,
+        FoxWin,
         BugEnd
     }
     [HarmonyPatch(typeof(ShipStatus))]
@@ -223,6 +224,12 @@ namespace SuperNewRoles.EndGame
                 text = "FalseChargesName";
                 textRenderer.color = RoleClass.FalseCharges.color;
                 __instance.BackgroundBar.material.SetColor("_Color", RoleClass.FalseCharges.color);
+            }
+            else if (AdditionalTempData.winCondition == WinCondition.FoxWin)
+            {
+                text = "FoxName";
+                textRenderer.color = RoleClass.Fox.color;
+                __instance.BackgroundBar.material.SetColor("_Color", Roles.RoleClass.Fox.color);
             }
             else if (AdditionalTempData.gameOverReason == GameOverReason.HumansByTask || AdditionalTempData.gameOverReason == GameOverReason.HumansByVote)
             {
@@ -486,6 +493,7 @@ namespace SuperNewRoles.EndGame
             notWinners.AddRange(RoleClass.MadHawk.MadHawkPlayer);
             notWinners.AddRange(RoleClass.MadJester.MadJesterPlayer);
             notWinners.AddRange(RoleClass.FalseCharges.FalseChargesPlayer);
+            notWinners.AddRange(RoleClass.Fox.FoxPlayer);
 
             foreach (PlayerControl p in RoleClass.Survivor.SurvivorPlayer)
             {
@@ -661,6 +669,19 @@ namespace SuperNewRoles.EndGame
             foreach (List<PlayerControl> players in RoleClass.Lovers.LoversPlayer)
             {
                 notWinners.AddRange(players);
+            }
+            var Foxalive = false;
+            foreach (PlayerControl p in RoleClass.Fox.FoxPlayer)
+            {
+                if (p.isAlive())
+                {
+                    Foxalive = true;
+                    TempData.winners = new Il2CppSystem.Collections.Generic.List<WinningPlayerData>();
+                    WinningPlayerData wpd = new WinningPlayerData(p.Data);
+                    TempData.winners.Add(wpd);
+                    AdditionalTempData.winCondition = WinCondition.FoxWin;
+
+                }
             }
 
             notWinners = new List<PlayerControl>();
@@ -923,6 +944,7 @@ namespace SuperNewRoles.EndGame
             if (ModeHandler.isMode(ModeId.Default))
             {
                 EvilEraser.IsWinGodGuard = false;
+                EvilEraser.IsWinFoxGuard = false;
                 if (RoleHelpers.IsQuarreled(Player))
                 {
                     var Side = RoleHelpers.GetOneSideQuarreled(Player);
@@ -1052,7 +1074,7 @@ namespace SuperNewRoles.EndGame
 
         public static bool CheckAndEndGameForImpostorWin(ShipStatus __instance, PlayerStatistics statistics)
         {
-            if (statistics.TeamImpostorsAlive >= statistics.TotalAlive - statistics.TeamImpostorsAlive && statistics.TeamJackalAlive == 0 && !EvilEraser.IsGodWinGuard())
+            if (statistics.TeamImpostorsAlive >= statistics.TotalAlive - statistics.TeamImpostorsAlive && statistics.TeamJackalAlive == 0 && !EvilEraser.IsGodWinGuard() && !EvilEraser.IsFoxWinGuard())
             {
 
                         __instance.enabled = false;
