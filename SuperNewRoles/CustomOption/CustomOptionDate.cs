@@ -402,6 +402,11 @@ namespace SuperNewRoles.CustomOption
         public static CustomRoleOption ObserverOption;
         public static CustomOption ObserverPlayerCount;
 
+        public static CustomRoleOption FoxOption;
+        public static CustomOption FoxPlayerCount;
+        public static CustomOption FoxCreateTraitor;
+        public static CustomOption FoxNewFoxCreateTraitor;
+
         public static CustomOption QuarreledOption;
         public static CustomOption QuarreledTeamCount;
         public static CustomOption QuarreledOnlyCrewMate;
@@ -837,6 +842,11 @@ namespace SuperNewRoles.CustomOption
 
             ObserverOption = new CustomRoleOption(352, true, CustomOptionType.Crewmate, "ObserverName", RoleClass.Observer.color, 1);
             ObserverPlayerCount = CustomOption.Create(353, true, CustomOptionType.Crewmate, "SettingPlayerCountName", CrewPlayers[0], CrewPlayers[1], CrewPlayers[2], CrewPlayers[3], ObserverOption);
+
+            FoxOption = new CustomRoleOption(354, true, CustomOptionType.Neutral, "FoxName", RoleClass.Fox.color, 1);
+            FoxPlayerCount = CustomOption.Create(355, true, CustomOptionType.Neutral, "SettingPlayerCountName", CrewPlayers[0], CrewPlayers[1], CrewPlayers[2], CrewPlayers[3], FoxOption);
+            FoxCreateTraitor = CustomOption.Create(356, false, CustomOptionType.Neutral, "FoxCreateTraitorSetting", false, FoxOption);
+            FoxNewFoxCreateTraitor = CustomOption.Create(357, false, CustomOptionType.Neutral, "JackalNewJackalCreateSidekickSetting", false, FoxOption);
 
             QuarreledOption = CustomOption.Create(122, false, CustomOptionType.Neutral, cs(RoleClass.Quarreled.color, "QuarreledName"), false, null, isHeader: true);
             QuarreledTeamCount = CustomOption.Create(124, false, CustomOptionType.Neutral, "QuarreledTeamCountSetting", QuarreledPlayers[0], QuarreledPlayers[1], QuarreledPlayers[2], QuarreledPlayers[3], QuarreledOption);

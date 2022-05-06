@@ -15,8 +15,6 @@ using SuperNewRoles.CustomOption;
 
 namespace SuperNewRoles
 {
-
-
     public static class RoleHelpers
     {
         public static bool isCrew(this PlayerControl player)
@@ -442,6 +440,9 @@ namespace SuperNewRoles
                 case (CustomRPC.RoleId.Observer):
                     Roles.RoleClass.Observer.ObserverPlayer.Add(player);
                     break;
+                case (CustomRPC.RoleId.Fox):
+                    Roles.RoleClass.Fox.FoxPlayer.Add(player);
+                    break;
                 //ロールアド
                 default:
                     SuperNewRolesPlugin.Logger.LogError("setRole: no method found for role type {role}");
@@ -646,7 +647,7 @@ namespace SuperNewRoles
                 case (CustomRPC.RoleId.MadMayor):
                     Roles.RoleClass.MadMayor.MadMayorPlayer.RemoveAll(ClearRemove);
                     break;
-                    case (CustomRPC.RoleId.MadStuntMan):
+                case (CustomRPC.RoleId.MadStuntMan):
                     Roles.RoleClass.MadStuntMan.MadStuntManPlayer.RemoveAll(ClearRemove);
                     break;
                 case (CustomRPC.RoleId.MadHawk):
@@ -675,6 +676,9 @@ namespace SuperNewRoles
                     break;
                 case (CustomRPC.RoleId.Observer):
                     Roles.RoleClass.Observer.ObserverPlayer.RemoveAll(ClearRemove);
+                    break;
+                case (CustomRPC.RoleId.Fox):
+                    Roles.RoleClass.Fox.FoxPlayer.RemoveAll(ClearRemove);
                     break;
                     //ロールリモベ
 
@@ -729,7 +733,7 @@ namespace SuperNewRoles
                 case (RoleId.Workperson):
                     IsTaskClear = true;
                     break;
-                    case (RoleId.truelover):
+                case (RoleId.truelover):
                     IsTaskClear = true;
                     break; 
                 case (RoleId.Amnesiac):
@@ -750,10 +754,13 @@ namespace SuperNewRoles
                 case (RoleId.MadJester):
                     IsTaskClear = true;
                     break;
-                    case (RoleId.FalseCharges):
+                case (RoleId.FalseCharges):
                     IsTaskClear = true;
-                    break; 
-                //タスククリアか
+                    break;
+                case (RoleId.Fox):
+                    IsTaskClear = true;
+                    break;
+                    //タスククリアか
             }
             if (!IsTaskClear && ModeHandler.isMode(ModeId.SuperHostRoles) && player.isRole(RoleId.Sheriff))
             {
@@ -859,7 +866,10 @@ namespace SuperNewRoles
                 case (RoleId.FalseCharges):
                     IsNeutral = true;
                     break;
-                //第三か
+                case (RoleId.Fox):
+                    IsNeutral = true;
+                    break;
+                    //第三か
             }
             return IsNeutral;
         }
@@ -1227,6 +1237,10 @@ namespace SuperNewRoles
                 else if (Roles.RoleClass.Observer.ObserverPlayer.IsCheckListPlayerControl(player))
                 {
                     return CustomRPC.RoleId.Observer;
+                }
+                else if (Roles.RoleClass.Fox.FoxPlayer.IsCheckListPlayerControl(player))
+                {
+                    return CustomRPC.RoleId.Fox;
                 }
                 //ロールチェック
 

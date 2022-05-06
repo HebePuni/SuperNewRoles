@@ -110,6 +110,7 @@ namespace SuperNewRoles.Roles
             Celebrity.ClearAndReload();
             Nocturnality.ClearAndReload();
             Observer.ClearAndReload();
+            Fox.ClearAndReload();
             //ロールクリア
             Quarreled.ClearAndReload();
             Lovers.ClearAndReload();
@@ -318,7 +319,6 @@ namespace SuperNewRoles.Roles
                 IsCreateSidekick = CustomOptions.JackalCreateSidekick.getBool();
                 NewJackalCreateSidekick = CustomOptions.JackalNewJackalCreateSidekick.getBool();
             }
-
         }
         public static class Teleporter
         {
@@ -1523,6 +1523,32 @@ namespace SuperNewRoles.Roles
             {
                 ObserverPlayer = new List<PlayerControl>();
                 IsVoteView = true;
+            }
+        }
+        public static class Fox
+        {
+            public static List<PlayerControl> FoxPlayer;
+            public static List<PlayerControl> TraitorPlayer;
+            public static List<PlayerControl> FakeTraitorPlayer;
+            public static Color32 color = new Color32(0, 255, 255, byte.MaxValue);
+            public static bool CreateTraitor;
+            public static bool NewFoxCreateSidekick;
+            public static bool IsCreateTraitor;
+            private static Sprite buttonSprite;
+            public static Sprite getButtonSprite()
+            {
+                if (buttonSprite) return buttonSprite;
+                buttonSprite = ModHelpers.loadSpriteFromResources("SuperNewRoles.Resources.JackalSidekickButton.png", 115f);
+                return buttonSprite;
+            }
+            public static void ClearAndReload()
+            {
+                FoxPlayer = new List<PlayerControl>();
+                TraitorPlayer = new List<PlayerControl>();
+                FakeTraitorPlayer = new List<PlayerControl>();
+                CreateTraitor = CustomOptions.FoxCreateTraitor.getBool();
+                IsCreateTraitor = CustomOptions.FoxCreateTraitor.getBool();
+                NewFoxCreateSidekick = CustomOptions.FoxNewFoxCreateTraitor.getBool();
             }
         }
         //新ロールクラス

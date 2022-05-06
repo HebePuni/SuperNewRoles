@@ -95,6 +95,7 @@ namespace SuperNewRoles.CustomRPC
         Celebrity,
         Nocturnality,
         Observer,
+        Fox,
         //RoleId
     }
 
