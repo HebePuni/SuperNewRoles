@@ -1538,7 +1538,7 @@ namespace SuperNewRoles.Roles
             public static Sprite getButtonSprite()
             {
                 if (buttonSprite) return buttonSprite;
-                buttonSprite = ModHelpers.loadSpriteFromResources("SuperNewRoles.Resources.JackalSidekickButton.png", 115f);
+                buttonSprite = ModHelpers.loadSpriteFromResources("SuperNewRoles.Resources.FoxButton.png", 115f);
                 return buttonSprite;
             }
             public static void ClearAndReload()

@@ -371,7 +371,35 @@ namespace SuperNewRoles.Patch
                 }
                 SetNamesClass.SetPlayerRoleNames(PlayerControl.LocalPlayer);
                 SetNamesClass.SetPlayerNameColors(PlayerControl.LocalPlayer);
+
+                if (PlayerControl.LocalPlayer.isRole(CustomRPC.RoleId.Fox) || PlayerControl.LocalPlayer.isRole(CustomRPC.RoleId.Traitor))
+                {
+                    foreach (PlayerControl p in RoleClass.Fox.FoxPlayer)
+                    {
+                        if (p != PlayerControl.LocalPlayer)
+                        {
+                            SetNamesClass.SetPlayerNameColors(p);
+                            SetNamesClass.SetPlayerRoleNames(p);
+                        }
+                    }
+                    foreach (PlayerControl p in RoleClass.Fox.TraitorPlayer)
+                    {
+                        if (p != PlayerControl.LocalPlayer)
+                        {
+                            SetNamesClass.SetPlayerRoleNames(p);
+                            SetNamesClass.SetPlayerNameColors(p);
+                        }
+                    }
+                    foreach (PlayerControl p in RoleClass.Fox.FakeTraitorPlayer)
+                    {
+                        SetNamesClass.SetPlayerNameColor(p, RoleClass.Fox.color);
+                        SetNamesClass.SetPlayerRoleInfoView(p, RoleClass.Fox.color, Intro.IntroDate.TraitorIntro.NameKey + "Name");
+                    }
+                }
+                SetNamesClass.SetPlayerRoleNames(PlayerControl.LocalPlayer);
+                SetNamesClass.SetPlayerNameColors(PlayerControl.LocalPlayer);
             }
+
             SetNamesClass.CelebritySet();
             SetNamesClass.QuarreledSet();
             SetNamesClass.LoversSet();

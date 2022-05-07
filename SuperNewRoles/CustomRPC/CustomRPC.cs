@@ -96,6 +96,7 @@ namespace SuperNewRoles.CustomRPC
         Nocturnality,
         Observer,
         Fox,
+        Traitor,
         //RoleId
     }
 
