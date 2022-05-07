@@ -149,8 +149,7 @@ namespace SuperNewRoles.CustomRPC
         CustomEndGame,
         TraitorPromotes,
         CreateTraitor,
-        CustomEndGame,
-        UncheckedProtect
+        UncheckedProtect,
     }
     public static class RPCProcedure
     {
@@ -863,6 +862,15 @@ namespace SuperNewRoles.CustomRPC
                         {
                             CustomEndGame((GameOverReason)reader.ReadByte(), reader.ReadBoolean());
                         }
+                        break;
+                    case (byte)CustomRPC.TraitorPromotes:
+                        RPCProcedure.TraitorPromotes();
+                        break;
+                    case (byte)CustomRPC.CreateTraitor:
+                        RPCProcedure.CreateTraitor(reader.ReadByte(), reader.ReadBoolean());
+                        break;
+                    case (byte)CustomRPC.UncheckedProtect:
+                        UncheckedProtect(reader.ReadByte(),reader.ReadByte(),reader.ReadByte());
                         break;
                 }
             }
