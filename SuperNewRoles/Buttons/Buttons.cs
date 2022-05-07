@@ -796,11 +796,7 @@ namespace SuperNewRoles.Buttons
                 {
                     return Fox.FoxFixedPatch.FoxsetTarget() && PlayerControl.LocalPlayer.CanMove;
                 },
-                () =>
-                {
-                    FoxTraitorButton.MaxTimer = RoleClass.Fox.TraitorCoolTime;
-                    FoxTraitorButton.Timer = RoleClass.SideKiller.KillCoolTime;
-                },
+               () => { Fox.EndMeeting(); },
                 RoleClass.Fox.getButtonSprite(),
                 new Vector3(-1.8f, -0.06f, 0),
                 __instance,

@@ -20,6 +20,15 @@ namespace SuperNewRoles.Roles
             target.MyRend.material.SetFloat("_Outline", 1f);
             target.MyRend.material.SetColor("_OutlineColor", color);
         }
+        public static void resetCoolDown()
+        {
+            HudManagerStartPatch.FoxTraitorButton.MaxTimer = RoleClass.Fox.TraitorCoolTime;
+            HudManagerStartPatch.FoxTraitorButton.Timer = RoleClass.Fox.TraitorCoolTime;
+        }
+        public static void EndMeeting()
+        {
+            resetCoolDown();
+        }
         public class FoxFixedPatch
         {
             public static PlayerControl FoxsetTarget(bool onlyCrewmates = false, bool targetPlayersInVents = false, List<PlayerControl> untargetablePlayers = null, PlayerControl targetingPlayer = null) {
