@@ -553,15 +553,18 @@ namespace SuperNewRoles.CustomRPC
                 }
             }
         }
-        public static void SidekickPromotes() {
-            for (int i = 0; i < RoleClass.Jackal.SidekickPlayer.Count; i++) {
+        public static void SidekickPromotes()
+        {
+            for (int i = 0; i < RoleClass.Jackal.SidekickPlayer.Count; i++) 
+            {
                 RoleClass.Jackal.JackalPlayer.Add(RoleClass.Jackal.SidekickPlayer[i]);
                 RoleClass.Jackal.SidekickPlayer.RemoveAt(i);
             }
             PlayerControlHepler.refreshRoleDescription(PlayerControl.LocalPlayer);
             ChacheManager.ResetMyRoleChache();
         }
-        public static void CreateSidekick(byte playerid,bool IsFake) {
+        public static void CreateSidekick(byte playerid,bool IsFake) 
+        {
             var player = ModHelpers.playerById(playerid);
             if (player == null) return;
             if (IsFake)
@@ -573,6 +576,33 @@ namespace SuperNewRoles.CustomRPC
                 DestroyableSingleton<RoleManager>.Instance.SetRole(player, RoleTypes.Crewmate);
                 player.ClearRole();
                 RoleClass.Jackal.SidekickPlayer.Add(player);
+                PlayerControlHepler.refreshRoleDescription(PlayerControl.LocalPlayer);
+                ChacheManager.ResetMyRoleChache();
+            }
+        }
+        public static void TraitorPromotes()
+        {
+            for (int i = 0; i < RoleClass.Fox.TraitorPlayer.Count; i++)
+            {
+                RoleClass.Fox.FoxPlayer.Add(RoleClass.Fox.TraitorPlayer[i]);
+                RoleClass.Fox.TraitorPlayer.RemoveAt(i);
+            }
+            PlayerControlHepler.refreshRoleDescription(PlayerControl.LocalPlayer);
+            ChacheManager.ResetMyRoleChache();
+        }
+        public static void CreateTraitor(byte playerid, bool IsFake)
+        {
+            var player = ModHelpers.playerById(playerid);
+            if (player == null) return;
+            if (IsFake)
+            {
+                RoleClass.Fox.FakeTraitorPlayer.Add(player);
+            }
+            else
+            {
+                DestroyableSingleton<RoleManager>.Instance.SetRole(player, RoleTypes.Crewmate);
+                player.ClearRole();
+                RoleClass.Fox.TraitorPlayer.Add(player);
                 PlayerControlHepler.refreshRoleDescription(PlayerControl.LocalPlayer);
                 ChacheManager.ResetMyRoleChache();
             }
@@ -661,33 +691,7 @@ namespace SuperNewRoles.CustomRPC
         {
             OnGameEndPatch.EndData = (CustomGameOverReason)Cond;
         }
-        public static void TraitorPromotes()
-        {
-            for (int i = 0; i < RoleClass.Fox.TraitorPlayer.Count; i++)
-            {
-                RoleClass.Fox.FoxPlayer.Add(RoleClass.Fox.TraitorPlayer[i]);
-                RoleClass.Fox.TraitorPlayer.RemoveAt(i);
-            }
-            PlayerControlHepler.refreshRoleDescription(PlayerControl.LocalPlayer);
-            ChacheManager.ResetMyRoleChache();
-        }
-        public static void CreateTraitor(byte playerid, bool IsFake)
-        {
-            var player = ModHelpers.playerById(playerid);
-            if (player == null) return;
-            if (IsFake)
-            {
-                RoleClass.Fox.FakeTraitorPlayer.Add(player);
-            }
-            else
-            {
-                DestroyableSingleton<RoleManager>.Instance.SetRole(player, RoleTypes.Crewmate);
-                player.ClearRole();
-                RoleClass.Fox.TraitorPlayer.Add(player);
-                PlayerControlHepler.refreshRoleDescription(PlayerControl.LocalPlayer);
-                ChacheManager.ResetMyRoleChache();
-            }
-        }
+
         [HarmonyPatch(typeof(InnerNetClient), nameof(InnerNetClient.StartEndGame))]
         class STARTENDGAME
         {

@@ -796,7 +796,11 @@ namespace SuperNewRoles.Buttons
                 {
                     return Fox.FoxFixedPatch.FoxsetTarget() && PlayerControl.LocalPlayer.CanMove;
                 },
-               () => { Fox.EndMeeting(); },
+                () =>
+                {
+                    FoxTraitorButton.MaxTimer = RoleClass.Fox.TraitorCoolTime;
+                    FoxTraitorButton.Timer = RoleClass.SideKiller.KillCoolTime;
+                },
                 RoleClass.Fox.getButtonSprite(),
                 new Vector3(-1.8f, -0.06f, 0),
                 __instance,
@@ -805,7 +809,7 @@ namespace SuperNewRoles.Buttons
                 49
             );
 
-            FoxTraitorButton.buttonText = ModTranslation.getString("JackalCreateSidekickButtonName");
+            FoxTraitorButton.buttonText = ModTranslation.getString("FoxCreateTraitorButtonName");
             FoxTraitorButton.showButtonText = true;
 
             RoleClass.SerialKiller.SuicideKillText = GameObject.Instantiate(HudManager.Instance.KillButton.cooldownTimerText, HudManager.Instance.KillButton.cooldownTimerText.transform.parent);

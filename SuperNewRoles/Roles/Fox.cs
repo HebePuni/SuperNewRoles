@@ -20,15 +20,6 @@ namespace SuperNewRoles.Roles
             target.MyRend.material.SetFloat("_Outline", 1f);
             target.MyRend.material.SetColor("_OutlineColor", color);
         }
-        public static void resetCoolDown()
-        {
-            HudManagerStartPatch.FoxTraitorButton.MaxTimer = RoleClass.Jackal.KillCoolDown;
-            HudManagerStartPatch.FoxTraitorButton.Timer = RoleClass.Jackal.KillCoolDown;
-        }
-        public static void EndMeeting()
-        {
-            resetCoolDown();
-        }
         public class FoxFixedPatch
         {
             public static PlayerControl FoxsetTarget(bool onlyCrewmates = false, bool targetPlayersInVents = false, List<PlayerControl> untargetablePlayers = null, PlayerControl targetingPlayer = null) {
@@ -71,7 +62,7 @@ namespace SuperNewRoles.Roles
                 }
                 return result;
             }
-            static void JackalPlayerOutLineTarget()
+            static void FoxPlayerOutLineTarget()
             {
                 setPlayerOutline(FoxsetTarget(), RoleClass.Fox.color);
             }
@@ -91,12 +82,13 @@ namespace SuperNewRoles.Roles
                         {
                             MessageWriter writer = AmongUsClient.Instance.StartRpcImmediately(PlayerControl.LocalPlayer.NetId, (byte)CustomRPC.CustomRPC.TraitorPromotes, Hazel.SendOption.Reliable, -1);
                             AmongUsClient.Instance.FinishRpcImmediately(writer);
-                            RPCProcedure.SidekickPromotes();
+                            RPCProcedure.TraitorPromotes();
                         }
                     }
                 }
-                if (PlayerControl.LocalPlayer.isRole(RoleId.Fox)) {
-                    JackalPlayerOutLineTarget();
+                if (PlayerControl.LocalPlayer.isRole(RoleId.Fox))
+                {
+                    FoxPlayerOutLineTarget();
                 }
             }
         }

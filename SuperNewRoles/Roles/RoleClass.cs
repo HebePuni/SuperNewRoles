@@ -1534,6 +1534,7 @@ namespace SuperNewRoles.Roles
             public static bool CreateTraitor;
             public static bool NewFoxCreateSidekick;
             public static bool IsCreateTraitor;
+            public static float TraitorCoolTime;
             private static Sprite buttonSprite;
             public static Sprite getButtonSprite()
             {
@@ -1549,6 +1550,7 @@ namespace SuperNewRoles.Roles
                 CreateTraitor = CustomOptions.FoxCreateTraitor.getBool();
                 IsCreateTraitor = CustomOptions.FoxCreateTraitor.getBool();
                 NewFoxCreateSidekick = CustomOptions.FoxNewFoxCreateTraitor.getBool();
+                TraitorCoolTime = CustomOptions.FoxTraitorCoolTime.getFloat();
             }
         }
         //新ロールクラス
