@@ -124,6 +124,10 @@ DetectiveModeIsNotDetectiveVoteSetting,Non-Detective cannot vote,探偵以外は
 DetectiveModeIsNotDetectiveMeetingButtonSetting,Non-Detective cannot press the conference button,探偵以外が会議ボタンを押せない
 DetectiveName,Detective,探偵
 DetectiveTitle1,Guess and win over your crewmates!,推理してクルーメイトを勝利させよう
+BattleRoyalIsViewAlivePlayer,You can see how many player are left alive.,残り生存人数がわかる
+BattleRoyalIsTeamBattle,Team competition,チーム戦
+BattleRoyalTeamAmount,Number of teams,チーム数
+BattleRoyalStartSeconds,Seconds to be able to make a kill,キルができるようになるまでの秒数
 CrewMateName,Crewmate,クルーメイト
 CrewMateTitle1,Use Task,タスクを行う
 CrewMateDescription,Default Crewmate.,通常のクルーメイトです。
@@ -218,13 +222,13 @@ SheriffName,Sheriff,シェリフ
 SheriffTitle1,Kill the outsider!,人外をキルしよう
 SheriffTitle2,Kill the outsider and lead your crewmates to victory!,人外をキルしてクルーメイトを勝利に導こう
 SheriffCoolDownSetting,Sheriff's Kill Cooldown,シェリフのキルクールダウン
-SheriffIsKillNeutralSetting,Can Kill a Neutral,第三陣営をキルできる
+SheriffIsKillNewtralSetting,Can Kill a Neutral,第三陣営をキルできる
 SheriffIsKillLoversSetting,Can Kill a Lovers,ラバーズをキルできる
-SheriffIsKillMadMateSetting,Can Kill a MadRole,マッド系役職をキルできる
-SheriffIsKillMadMateYes,Yes,できる
-SheriffIsKillMadMateNo,No,できない
+SheriffIsKillMadRoleSetting,Can Kill a MadRole,マッド系役職をキルできる
+SheriffYes,Yes,できる
+SheriffNo,No,できない
 SheriffMaxKillCountSetting,Maximum number of kills for Sheriff,シェリフの最大キル数
-SherifKillButtonName,Kill,キル
+SheriffKillButtonName,Kill,キル
 SheriffNumTextName,{0} shots remaining.,残り{0}発
 MeetingSheriffName,Meeting Sheriff,ミーティング シェリフ
 MeetingSheriffTitle1,Kill an outsider in a meeting!,人外を会議でキルしよう
@@ -232,7 +236,7 @@ MeetingSheriffTitle2,Kill an outsider in a meeting and lead your crewmates to vi
 MeetingSheriffTitle3,Kill an outsider in a meeting to prevent a power play,人外を会議でキルしてパワープレイを防ごう
 MeetingSheriffTitle4,Kill an outsider in a meeting to prevent a PP,人外を会議でキルしてPPを防ごう
 MeetingSheriffIsKillNeutralSetting,Can Kill a Neutral,第三陣営をキルできる
-MeetingSheriffIsKillMadMateSetting,Can Kill a Madmate,マッドメイドをキルできる
+MeetingSheriffIsKillMadRoleSetting,Can Kill a Madmate,マッド系役職をキルできる
 MeetingSheriffYes,Yes,できる
 MeetingSheriffNo,No,できない
 MeetingSheriffMaxKillCountSetting,Maximum number of Meeting Sheriff kills,ミーティングシェリフの最大キル数
@@ -305,7 +309,7 @@ SealdorDurationSetting,Shield duration,シールド継続時間
 FreezerName,Freezer,フリーザー
 FreezerTitle1,Stop everyone and sabotage your crewmates!,みんなを止めてクルーメイトを妨害しよう
 FreezerTitle2,Try to stop everyone and sabotage the task!,みんなを止めてタスクの妨害をしよう
-FreezerTitle2,Let's put them all on ice.,全員を氷漬けにしよう
+FreezerTitle3,Let's put them all on ice.,全員を氷漬けにしよう
 FreezerCoolTimeSetting,Freeze Cool Time,フリーズクールタイム
 FreezerDurationSetting,Freeze duration,フリーズ継続時間
 SpeederName,Speeder,スピーダー
@@ -331,6 +335,7 @@ NiceScientistTitle1,Turn invisible and find the bodies!,透明になって死体
 NiceScientistTitle2,Use the power of science to win!,科学の力で勝利しよう
 NiceScientistCoolDownSetting,Cool Time,クールタイム
 NiceScientistDurationSetting,Duration Time,継続時間
+ScientistButtonName,Hide,隠れる
 ClergymanName,Clergyman,聖職者
 ClergymanTitle1,Let's sabotage the outsider.,人外の妨害をしよう
 ClergymanTitle2,Let's obstruct the outsider's view.,人外の視界を妨害しよう
@@ -453,6 +458,7 @@ EvilEraserTitle1,Let's wipe out their abilities.,能力を消し去ろう
 EvilEraserMaxCountSetting,Max Erase Count,最大削除回数
 WorkpersonName,Work person,仕事人
 WorkpersonTitle1,Let's do the work and win!,仕事をして勝利しよう
+WorkpersonIsAliveWinSetting,You have to be alive to win,生存していないと勝利できない
 MagazinerName,Magaziner,マガジナー
 MagazinerTitle1,Save your kills!,キルを貯めよう
 MagazinerSetTimeSetting,Kill cool time after magazine use,マガジン使用後のキルクールタイム

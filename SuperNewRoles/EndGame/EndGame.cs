@@ -208,6 +208,7 @@ namespace SuperNewRoles.EndGame
             }
             else if (AdditionalTempData.winCondition == WinCondition.WorkpersonWin)
             {
+                SuperNewRolesPlugin.Logger.LogInfo("仕事人勝利文字");
                 text = "WorkpersonName";
                 textRenderer.color = RoleClass.Workperson.color;
                 __instance.BackgroundBar.material.SetColor("_Color", RoleClass.Workperson.color);
@@ -240,15 +241,6 @@ namespace SuperNewRoles.EndGame
             {
                 text = "ImpostorName";
                 textRenderer.color = RoleClass.ImpostorRed;
-            }
-            if (ModeHandler.isMode(ModeId.BattleRoyal)) {
-                foreach (PlayerControl p in PlayerControl.AllPlayerControls) {
-                    if (p.isAlive())
-                    {
-                        text = p.nameText.text;
-                        textRenderer.color = new Color32(116, 80, 48, byte.MaxValue);
-                    }
-                }
             }
             var haison = false;
             if (text == "HAISON") {
@@ -304,6 +296,17 @@ namespace SuperNewRoles.EndGame
                 {
                     text = ModTranslation.getString("ZombiePoliceName");
                     textRenderer.color = Mode.Zombie.main.Policecolor;
+                }
+            }
+            if (ModeHandler.isMode(ModeId.BattleRoyal))
+            {
+                foreach (PlayerControl p in PlayerControl.AllPlayerControls)
+                {
+                    if (p.isAlive())
+                    {
+                        text = p.nameText.text;
+                        textRenderer.color = new Color32(116, 80, 48, byte.MaxValue);
+                    }
                 }
             }
             if (!haison) {
@@ -585,6 +588,7 @@ namespace SuperNewRoles.EndGame
             }
             else if (WorkpersonWin)
             {
+                SuperNewRolesPlugin.Logger.LogInfo("仕事人勝利");
                 TempData.winners = new Il2CppSystem.Collections.Generic.List<WinningPlayerData>();
                 WinningPlayerData wpd = new WinningPlayerData(WinnerPlayer.Data);
                 TempData.winners.Add(wpd);
@@ -592,7 +596,6 @@ namespace SuperNewRoles.EndGame
             }
             else if (FalseChargesWin)
             {
-                SuperNewRolesPlugin.Logger.LogInfo("FC勝利！");
                 TempData.winners = new Il2CppSystem.Collections.Generic.List<WinningPlayerData>();
                 WinningPlayerData wpd = new WinningPlayerData(WinnerPlayer.Data);
                 TempData.winners.Add(wpd);
@@ -630,12 +633,23 @@ namespace SuperNewRoles.EndGame
             if (ModeHandler.isMode(ModeId.BattleRoyal))
             {
                 TempData.winners = new Il2CppSystem.Collections.Generic.List<WinningPlayerData>();
-                foreach (PlayerControl p in PlayerControl.AllPlayerControls)
+                if (Mode.BattleRoyal.main.IsTeamBattle)
                 {
-                    if (p.isAlive())
+                    foreach (PlayerControl p in Mode.BattleRoyal.main.Winners)
                     {
                         WinningPlayerData wpd = new WinningPlayerData(p.Data);
                         TempData.winners.Add(wpd);
+                    }
+                }
+                else
+                {
+                    foreach (PlayerControl p in PlayerControl.AllPlayerControls)
+                    {
+                        if (p.isAlive())
+                        {
+                            WinningPlayerData wpd = new WinningPlayerData(p.Data);
+                            TempData.winners.Add(wpd);
+                        }
                     }
                 }
                 AdditionalTempData.winCondition = WinCondition.Default;

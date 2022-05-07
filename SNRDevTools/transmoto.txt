@@ -123,6 +123,10 @@ DetectiveModeIsNotDetectiveVoteSetting
 DetectiveModeIsNotDetectiveMeetingButtonSetting
 DetectiveName
 DetectiveTitle1
+BattleRoyalIsViewAlivePlayer
+BattleRoyalIsTeamBattle
+BattleRoyalTeamAmount
+BattleRoyalStartSeconds
 CrewMateName
 CrewMateTitle1
 CrewMateDescription
@@ -217,13 +221,13 @@ SheriffName
 SheriffTitle1
 SheriffTitle2
 SheriffCoolDownSetting
-SheriffIsKillNeutralSetting
+SheriffIsKillNewtralSetting
 SheriffIsKillLoversSetting
-SheriffIsKillMadMateSetting
-SheriffIsKillMadMateYes
-SheriffIsKillMadMateNo
+SheriffIsKillMadRoleSetting
+SheriffYes
+SheriffNo
 SheriffMaxKillCountSetting
-SherifKillButtonName
+SheriffKillButtonName
 SheriffNumTextName
 MeetingSheriffName
 MeetingSheriffTitle1
@@ -231,7 +235,7 @@ MeetingSheriffTitle2
 MeetingSheriffTitle3
 MeetingSheriffTitle4
 MeetingSheriffIsKillNeutralSetting
-MeetingSheriffIsKillMadMateSetting
+MeetingSheriffIsKillMadRoleSetting
 MeetingSheriffYes
 MeetingSheriffNo
 MeetingSheriffMaxKillCountSetting
@@ -304,7 +308,7 @@ SealdorDurationSetting
 FreezerName
 FreezerTitle1
 FreezerTitle2
-FreezerTitle2
+FreezerTitle3
 FreezerCoolTimeSetting
 FreezerDurationSetting
 SpeederName
@@ -330,6 +334,7 @@ NiceScientistTitle1
 NiceScientistTitle2
 NiceScientistCoolDownSetting
 NiceScientistDurationSetting
+ScientistButtonName
 ClergymanName
 ClergymanTitle1
 ClergymanTitle2
@@ -452,6 +457,7 @@ EvilEraserTitle1
 EvilEraserMaxCountSetting
 WorkpersonName
 WorkpersonTitle1
+WorkpersonIsAliveWinSetting
 MagazinerName
 MagazinerTitle1
 MagazinerSetTimeSetting
