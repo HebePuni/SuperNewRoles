@@ -550,3 +550,11 @@ NocturnalityName
 NocturnalityTitle1
 ObserverName
 ObserverTitle1
+FoxName
+FoxTitle1
+TraitorCoolTimeSetting
+FoxCreateTraitorSetting
+FoxNewFoxCreateTraitorSetting
+FoxCreateTraitorButtonName
+TraitorName
+TraitorTitle1

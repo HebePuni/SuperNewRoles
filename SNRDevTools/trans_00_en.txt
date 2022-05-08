@@ -550,3 +550,11 @@ Nocturnality
 You live in darkness.
 Observer
 Let's monitor everything.
+Fox
+I am Fox!
+TraitorCoolTime
+Fox can make a Traitor
+New Fox can make Traitor
+Traitor!
+Traitor
+Let's subjugate ourselves to the fake railer.
