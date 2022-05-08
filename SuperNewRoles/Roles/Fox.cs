@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using SuperNewRoles.CustomOption;
 
 namespace SuperNewRoles.Roles
 {
@@ -101,5 +102,37 @@ namespace SuperNewRoles.Roles
                 }
             }
         }
+
+        [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.MurderPlayer))]
+        class FoxMurderPatch
+        {
+            public static void Prefix(PlayerControl __instance, [HarmonyArgument(0)] PlayerControl target)
+            {
+                if (AmongUsClient.Instance.AmHost && __instance.PlayerId != target.PlayerId)
+                {
+                    if (target.isRole(CustomRPC.RoleId.Fox))
+                    {
+                        if (EvilEraser.IsOKAndTryUse(EvilEraser.BlockTypes.FoxGuard,__instance)) {
+                            if (!RoleClass.Fox.KillGuard.ContainsKey(target.PlayerId))
+                            {
+                                target.RpcProtectPlayer(target, 0);
+                            }
+                            else
+                            {
+                                if (!(RoleClass.Fox.KillGuard[target.PlayerId] <= 0))
+                                {
+                                    RoleClass.Fox.KillGuard[target.PlayerId]--;
+                                    target.RpcProtectPlayer(target, 0);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            public static void Postfix(PlayerControl __instance, [HarmonyArgument(0)] PlayerControl target)
+            {
+            }
+        }
+
     }
 }
