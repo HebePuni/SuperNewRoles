@@ -550,6 +550,7 @@ NocturnalityName
 NocturnalityTitle1
 ObserverName
 ObserverTitle1
+<<<<<<< HEAD
 FoxName
 FoxTitle1
 TraitorCoolTimeSetting
@@ -558,7 +559,6 @@ FoxNewFoxCreateTraitorSetting
 FoxCreateTraitorButtonName
 TraitorName
 TraitorTitle1
-ObserverTitle1
 VampireName
 VampireTitle1
 VampireKillDelay

@@ -550,6 +550,7 @@ Nocturnality
 You live in darkness.
 Observer
 Let's monitor everything.
+<<<<<<< HEAD
 Fox
 I am Fox!
 TraitorCoolTime
@@ -558,7 +559,6 @@ New Fox can make Traitor
 Traitor!
 Traitor
 Let's subjugate ourselves to the fake railer.
-Let's monitor everything.
 Vampire
 Let's do a delayed kill.
 Kill Delay
