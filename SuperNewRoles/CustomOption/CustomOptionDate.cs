@@ -404,9 +404,6 @@ namespace SuperNewRoles.CustomOption
 
         public static CustomRoleOption FoxOption;
         public static CustomOption FoxPlayerCount;
-        public static CustomOption FoxCreateTraitor;
-        public static CustomOption FoxNewFoxCreateTraitor;
-        public static CustomOption FoxTraitorCoolTime;
 
         public static CustomRoleOption VampireOption;
         public static CustomOption VampirePlayerCount;
