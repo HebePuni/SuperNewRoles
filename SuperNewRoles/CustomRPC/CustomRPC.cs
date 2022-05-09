@@ -147,8 +147,6 @@ namespace SuperNewRoles.CustomRPC
         UseStuntmanCount,
         UseMadStuntmanCount,
         CustomEndGame,
-        TraitorPromotes,
-        CreateTraitor,
         UncheckedProtect,
     }
     public static class RPCProcedure
@@ -580,33 +578,6 @@ namespace SuperNewRoles.CustomRPC
                 ChacheManager.ResetMyRoleChache();
             }
         }
-        public static void TraitorPromotes()
-        {
-            for (int i = 0; i < RoleClass.Fox.TraitorPlayer.Count; i++)
-            {
-                RoleClass.Fox.FoxPlayer.Add(RoleClass.Fox.TraitorPlayer[i]);
-                RoleClass.Fox.TraitorPlayer.RemoveAt(i);
-            }
-            PlayerControlHepler.refreshRoleDescription(PlayerControl.LocalPlayer);
-            ChacheManager.ResetMyRoleChache();
-        }
-        public static void CreateTraitor(byte playerid, bool IsFake)
-        {
-            var player = ModHelpers.playerById(playerid);
-            if (player == null) return;
-            if (IsFake)
-            {
-                RoleClass.Fox.FakeTraitorPlayer.Add(player);
-            }
-            else
-            {
-                DestroyableSingleton<RoleManager>.Instance.SetRole(player, RoleTypes.Crewmate);
-                player.ClearRole();
-                RoleClass.Fox.TraitorPlayer.Add(player);
-                PlayerControlHepler.refreshRoleDescription(PlayerControl.LocalPlayer);
-                ChacheManager.ResetMyRoleChache();
-            }
-        }
         public static void BomKillRPC(byte sourceId)
         {
             PlayerControl source = ModHelpers.playerById(sourceId);
@@ -866,12 +837,6 @@ namespace SuperNewRoles.CustomRPC
                         {
                             CustomEndGame((GameOverReason)reader.ReadByte(), reader.ReadBoolean());
                         }
-                        break;
-                    case (byte)CustomRPC.TraitorPromotes:
-                        RPCProcedure.TraitorPromotes();
-                        break;
-                    case (byte)CustomRPC.CreateTraitor:
-                        RPCProcedure.CreateTraitor(reader.ReadByte(), reader.ReadBoolean());
                         break;
                     case (byte)CustomRPC.UncheckedProtect:
                         UncheckedProtect(reader.ReadByte(),reader.ReadByte(),reader.ReadByte());
