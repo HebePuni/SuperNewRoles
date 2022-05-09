@@ -558,3 +558,7 @@ FoxNewFoxCreateTraitorSetting
 FoxCreateTraitorButtonName
 TraitorName
 TraitorTitle1
+ObserverTitle1
+VampireName
+VampireTitle1
+VampireKillDelay

@@ -170,6 +170,8 @@ namespace SuperNewRoles.Intro
                     return FoxIntro;
                 case (CustomRPC.RoleId.Traitor):
                     return TraitorIntro;
+                case (CustomRPC.RoleId.Vampire):
+                    return VampireIntro;
                 //イントロ検知
                 case (CustomRPC.RoleId.DefaultRole):
                     if (p != null && p.Data.Role.IsImpostor) {
@@ -262,8 +264,6 @@ namespace SuperNewRoles.Intro
         public static IntroDate CelebrityIntro = new IntroDate("Celebrity", RoleClass.Celebrity.color, 1, CustomRPC.RoleId.Celebrity);
         public static IntroDate NocturnalityIntro = new IntroDate("Nocturnality", RoleClass.Nocturnality.color, 1, CustomRPC.RoleId.Nocturnality);
         public static IntroDate ObserverIntro = new IntroDate("Observer", RoleClass.Observer.color, 1, CustomRPC.RoleId.Observer);
-        public static IntroDate FoxIntro = new IntroDate("Fox", RoleClass.Fox.color, 1, CustomRPC.RoleId.Fox, TeamRoleType.Neutral);
-        public static IntroDate TraitorIntro = new IntroDate("Traitor", RoleClass.Fox.color, 1, CustomRPC.RoleId.Traitor, TeamRoleType.Neutral);
         //イントロオブジェ
     }
 }

@@ -443,6 +443,9 @@ namespace SuperNewRoles
                 case (CustomRPC.RoleId.Fox):
                     Roles.RoleClass.Fox.FoxPlayer.Add(player);
                     break;
+                case (CustomRPC.RoleId.Vampire):
+                    Roles.RoleClass.Vampire.VampirePlayer.Add(player);
+                    break;
                 //ロールアド
                 default:
                     SuperNewRolesPlugin.Logger.LogError("setRole: no method found for role type {role}");
@@ -676,9 +679,6 @@ namespace SuperNewRoles
                     break;
                 case (CustomRPC.RoleId.Observer):
                     Roles.RoleClass.Observer.ObserverPlayer.RemoveAll(ClearRemove);
-                    break;
-                case (CustomRPC.RoleId.Fox):
-                    Roles.RoleClass.Fox.FoxPlayer.RemoveAll(ClearRemove);
                     break;
                     //ロールリモベ
 
@@ -1250,10 +1250,6 @@ namespace SuperNewRoles
                 else if (Roles.RoleClass.Observer.ObserverPlayer.IsCheckListPlayerControl(player))
                 {
                     return CustomRPC.RoleId.Observer;
-                }
-                else if (Roles.RoleClass.Fox.FoxPlayer.IsCheckListPlayerControl(player))
-                {
-                    return CustomRPC.RoleId.Fox;
                 }
                 //ロールチェック
 

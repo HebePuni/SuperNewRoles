@@ -551,6 +551,10 @@ NocturnalityName,Nocturnality,夜行性
 NocturnalityTitle1,You live in darkness.,あなたは暗闇の中で生きている
 ObserverName,Observer,選挙管理委員
 ObserverTitle1,Let's monitor everything.,すべてを監視しよう
+VampireName,Vampire,ヴァンパイア
+VampireTitle1,Let's do a delayed kill.,遅延キルしよう
+VampireKillDelay,Kill Delay,キル遅延
+ObserverTitle1,Let's monitor everything.,すべてを監視しよう
 FoxName,Fox,妖狐
 FoxTitle1,I am Fox!,私は狐です!
 TraitorCoolTimeSetting,TraitorCoolTime,背信者クールタイム

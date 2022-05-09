@@ -798,6 +798,8 @@ namespace SuperNewRoles
                     return CustomOption.CustomOptions.NocturnalityPlayerCount.getFloat();
                 case (RoleId.Observer):
                     return CustomOption.CustomOptions.ObserverPlayerCount.getFloat();
+                    case (RoleId.Vampire):
+                    return CustomOption.CustomOptions.VampirePlayerCount.getFloat();
                 case (RoleId.Fox):
                     return CustomOption.CustomOptions.FoxPlayerCount.getFloat();
                     //プレイヤーカウント
@@ -2010,22 +2012,6 @@ namespace SuperNewRoles
                     for (int i = 1; i <= OptionDate; i++)
                     {
                         Crewnotonepar.Add(ThisRoleId);
-                    }
-                }
-            }
-            if (!(CustomOption.CustomOptions.FoxOption.getString().Replace("0%", "") == ""))
-            {
-                int OptionDate = int.Parse(CustomOption.CustomOptions.FoxOption.getString().Replace("0%", ""));
-                RoleId ThisRoleId = RoleId.Fox;
-                if (OptionDate == 10)
-                {
-                    Neutonepar.Add(ThisRoleId);
-                }
-                else
-                {
-                    for (int i = 1; i <= OptionDate; i++)
-                    {
-                        Neutnotonepar.Add(ThisRoleId);
                     }
                 }
             }
