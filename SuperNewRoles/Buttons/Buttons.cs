@@ -42,6 +42,7 @@ namespace SuperNewRoles.Buttons
         public static CustomButton ImpostorSidekickButton;
         public static CustomButton SideKillerSidekickButton;
         public static CustomButton FalseChargesFalseChargeButton;
+        public static CustomButton FoxTraitorButton;
 
         public static TMPro.TMP_Text sheriffNumShotsText;
 
@@ -774,6 +775,38 @@ namespace SuperNewRoles.Buttons
 
             SideKillerSidekickButton.buttonText = ModTranslation.getString("SidekickName");
             SideKillerSidekickButton.showButtonText = true;
+
+            FoxTraitorButton = new CustomButton(
+                () =>
+                {
+                    var target = Fox.FoxFixedPatch.FoxsetTarget();
+                    if (target && RoleHelpers.isAlive(PlayerControl.LocalPlayer) && PlayerControl.LocalPlayer.CanMove && RoleClass.Fox.IsCreateTraitor)
+                    {
+                        bool IsFakeTraitor = EvilEraser.IsBlockAndTryUse(EvilEraser.BlockTypes.FoxTraitor, target);
+                        MessageWriter killWriter = AmongUsClient.Instance.StartRpcImmediately(PlayerControl.LocalPlayer.NetId, (byte)CustomRPC.CustomRPC.CreateTraitor, Hazel.SendOption.Reliable, -1);
+                        killWriter.Write(target.PlayerId);
+                        killWriter.Write(IsFakeTraitor);
+                        AmongUsClient.Instance.FinishRpcImmediately(killWriter);
+                        CustomRPC.RPCProcedure.CreateTraitor(target.PlayerId, IsFakeTraitor);
+                        RoleClass.Fox.IsCreateTraitor = false;
+                    }
+                },
+                () => { return RoleHelpers.isAlive(PlayerControl.LocalPlayer) && PlayerControl.LocalPlayer.isRole(CustomRPC.RoleId.Fox) && RoleClass.Fox.IsCreateTraitor; },
+                () =>
+                {
+                    return Fox.FoxFixedPatch.FoxsetTarget() && PlayerControl.LocalPlayer.CanMove;
+                },
+               () => { Fox.EndMeeting(); },
+                RoleClass.Fox.getButtonSprite(),
+                new Vector3(-1.8f, -0.06f, 0),
+                __instance,
+                __instance.AbilityButton,
+                KeyCode.F,
+                49
+            );
+
+            FoxTraitorButton.buttonText = ModTranslation.getString("FoxCreateTraitorButtonName");
+            FoxTraitorButton.showButtonText = true;
 
             RoleClass.SerialKiller.SuicideKillText = GameObject.Instantiate(HudManager.Instance.KillButton.cooldownTimerText, HudManager.Instance.KillButton.cooldownTimerText.transform.parent);
             RoleClass.SerialKiller.SuicideKillText.text = "";
