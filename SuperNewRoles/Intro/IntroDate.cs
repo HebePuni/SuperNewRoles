@@ -172,6 +172,14 @@ namespace SuperNewRoles.Intro
                     return TraitorIntro;
                 case (CustomRPC.RoleId.Vampire):
                     return VampireIntro;
+                case (CustomRPC.RoleId.DarkKiller):
+                    return DarkKillerIntro;
+                case (CustomRPC.RoleId.Seer):
+                    return SeerIntro;
+                case (CustomRPC.RoleId.MadSeer):
+                    return MadSeerIntro;
+                case (CustomRPC.RoleId.EvilSeer):
+                    return EvilSeerIntro;
                 //イントロ検知
                 case (CustomRPC.RoleId.DefaultRole):
                     if (p != null && p.Data.Role.IsImpostor) {

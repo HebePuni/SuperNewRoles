@@ -409,6 +409,44 @@ namespace SuperNewRoles.CustomOption
         public static CustomOption VampirePlayerCount;
         public static CustomOption VampireKillDelay;
 
+        public static CustomRoleOption DarkKillerOption;
+        public static CustomOption DarkKillerPlayerCount;
+        public static CustomOption DarkKillerKillCoolTime;
+
+        public static CustomRoleOption SeerOption;
+        public static CustomOption SeerPlayerCount;
+        public static CustomOption SeerMode;
+        public static CustomOption SeerModeBoth;
+        public static CustomOption SeerModeFlash;
+        public static CustomOption SeerModeSouls;
+        public static CustomOption SeerLimitSoulDuration;
+        public static CustomOption SeerSoulDuration;
+
+        public static CustomRoleOption MadSeerOption;
+        public static CustomOption MadSeerPlayerCount;
+        public static CustomOption MadSeerMode;
+        public static CustomOption MadSeerModeBoth;
+        public static CustomOption MadSeerModeFlash;
+        public static CustomOption MadSeerModeSouls;
+        public static CustomOption MadSeerLimitSoulDuration;
+        public static CustomOption MadSeerSoulDuration;
+        public static CustomOption MadSeerIsCheckImpostor;
+        public static CustomOption MadSeerCommonTask;
+        public static CustomOption MadSeerShortTask;
+        public static CustomOption MadSeerLongTask;
+        public static CustomOption MadSeerCheckImpostorTask;
+        public static CustomOption MadSeerIsUseVent;
+        public static CustomOption MadSeerIsImpostorLight;
+
+        public static CustomRoleOption EvilSeerOption;
+        public static CustomOption EvilSeerPlayerCount;
+        public static CustomOption EvilSeerMode;
+        public static CustomOption EvilSeerModeBoth;
+        public static CustomOption EvilSeerModeFlash;
+        public static CustomOption EvilSeerModeSouls;
+        public static CustomOption EvilSeerLimitSoulDuration;
+        public static CustomOption EvilSeerSoulDuration;
+
         public static CustomOption QuarreledOption;
         public static CustomOption QuarreledTeamCount;
         public static CustomOption QuarreledOnlyCrewMate;
@@ -660,9 +698,9 @@ namespace SuperNewRoles.CustomOption
             ResearcherOption = new CustomRoleOption(144, "ResearcherName", RoleClass.Researcher.color, 1);
             ResearcherPlayerCount = CustomOption.Create(145, cs(Color.white, "SettingPlayerCountName"), CrewPlayers[0], CrewPlayers[1], CrewPlayers[2], CrewPlayers[3], ResearcherOption);
             **/
-            SelfBomberOption = new CustomRoleOption(146, false, CustomOptionType.Impostor, "SelfBomberName", RoleClass.SelfBomber.color, 1);
-            SelfBomberPlayerCount = CustomOption.Create(147, false, CustomOptionType.Impostor, "SettingPlayerCountName", ImpostorPlayers[0], ImpostorPlayers[1], ImpostorPlayers[2], ImpostorPlayers[3], SelfBomberOption);
-            SelfBomberScope = CustomOption.Create(148, false, CustomOptionType.Impostor, "SelfBomberScopeSetting",1f,0.5f,3f,0.5f,SelfBomberOption);
+            SelfBomberOption = new CustomRoleOption(146, true, CustomOptionType.Impostor, "SelfBomberName", RoleClass.SelfBomber.color, 1);
+            SelfBomberPlayerCount = CustomOption.Create(147, true, CustomOptionType.Impostor, "SettingPlayerCountName", ImpostorPlayers[0], ImpostorPlayers[1], ImpostorPlayers[2], ImpostorPlayers[3], SelfBomberOption);
+            SelfBomberScope = CustomOption.Create(148, true, CustomOptionType.Impostor, "SelfBomberScopeSetting",1f,0.5f,3f,0.5f,SelfBomberOption);
 
             GodOption = new CustomRoleOption(149, true, CustomOptionType.Neutral, "GodName", RoleClass.God.color, 1);
             GodPlayerCount = CustomOption.Create(150, true, CustomOptionType.Neutral, "SettingPlayerCountName", CrewPlayers[0], CrewPlayers[1], CrewPlayers[2], CrewPlayers[3], GodOption);
